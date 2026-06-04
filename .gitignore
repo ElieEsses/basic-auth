@@ -1,0 +1,14 @@
+# Python
+venv/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Ruff
+.ruff_cache/
+
+# Env
+.env
+
+# OS
+**/.DS_Store

@@ -44,5 +44,4 @@ for route_module in all_routes:
 
 if __name__ == "__main__":
     import uvicorn
-
     uvicorn.run("Project.main:app", host="0.0.0.0", port=PORT, reload=DEBUG_MODE)

@@ -1,3 +1,3 @@
-from Project.routes import health, example
+from Project.routes import health, example, auth
 
-all_routes = [health, example]
+all_routes = [health, example, auth]

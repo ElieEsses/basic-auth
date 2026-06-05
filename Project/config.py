@@ -28,3 +28,7 @@ PORT = _get_int("PORT", default=8000)
 FRONTEND_ORIGINS = _get_list("FRONTEND_ORIGINS", "http://localhost:3000")
 DB_SCHEMA_PATH = os.environ.get("DB_SCHEMA_PATH", "./Project/db/schema.sql")
 DB_PATH = os.environ.get("DB_PATH", "./data.db")
+
+JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
+JWT_ALGORITHM = os.environ.get("JWT_ALGORITHM")
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = _get_int("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", 60)

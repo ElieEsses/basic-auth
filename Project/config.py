@@ -24,7 +24,7 @@ def _get_list(name: str, default: str) -> list[str]:
     return [item.strip() for item in value.split(",") if item.strip()]
 
 
-DEBUG_MODE = _get_bool("DEBUG", default=False)
+DEBUG_MODE = _get_bool("DEBUG_MODE", default=False)
 PORT = _get_int("PORT", default=8000)
 FRONTEND_ORIGINS = _get_list("FRONTEND_ORIGINS", "http://localhost:3000")
 DB_SCHEMA_PATH = os.environ.get("DB_SCHEMA_PATH", "./Project/db/schema.sql")

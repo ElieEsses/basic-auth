@@ -66,6 +66,10 @@ def login(login_data: LoginRequest, response: Response) -> dict[str, bool]:
 
     return {"success": True}
 
+@router.post("/auth/logout")
+def logout(response: Response) -> dict[str, bool]:  
+    response.delete_cookie(key="access_token")
+    return {"success": True}
 
 @router.get("/auth/me")
 def me(user: UserResponse = Depends(auth.get_current_user)) -> UserResponse:

@@ -7,5 +7,5 @@ if [ ! -d "venv" ]; then
 fi
 
 source venv/bin/activate
-python -m pip install -r requirements.txt
-python -m Project.main
+python3 -m pip install -r requirements.txt
+python3 -m Project.main

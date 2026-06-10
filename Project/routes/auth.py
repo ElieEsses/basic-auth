@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Response
 
-from Project.config import DEBUG_MODE
+from Project.config import DEBUG_MODE, JWT_ACCESS_TOKEN_EXPIRE_MINUTES
 from Project.db.DBUtils import get_db
 from Project.models.auth import LoginRequest, SignupRequest, UserResponse
 from Project.services import auth
@@ -43,7 +43,7 @@ def login(login_data: LoginRequest, response: Response) -> dict[str, bool]:
 
     with get_db() as db:
         user = db.execute(
-            "SELECT * FROM users WHERE email = ?",
+            "SELECT id, password_hash FROM users WHERE email = ?",
             (login_data.email,),
         ).fetchone()
 
@@ -61,7 +61,7 @@ def login(login_data: LoginRequest, response: Response) -> dict[str, bool]:
         httponly=True,
         secure=not DEBUG_MODE,
         samesite="lax",
-        max_age=60 * 60 * 24 * 7,
+        max_age= JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     )
 
     return {"success": True}
